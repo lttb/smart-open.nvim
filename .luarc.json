@@ -8,5 +8,11 @@
         "lvim",
         "packer_plugins",
         "files"
+    ],
+    "workspace.library": [
+        "/Users/lttb/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/Users/lttb/.local/share/bob/stable/nvim-macos/share/nvim/runtime/lua",
+        "/Users/lttb/dev/oss/lttb/smart-open.nvim/lua",
+        "${3rd}/luv/library"
     ]
 }

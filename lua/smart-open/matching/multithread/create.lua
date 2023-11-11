@@ -9,10 +9,10 @@ local function create_matcher(matching_algorithm, context)
   local prompt = nil
   local process_result
   local process_complete
-  local slot_count = 4 -- threadpool thread count
+  local slot_count = 4   -- threadpool thread count
   local last_processed_index = 0
   local top_entries = {} -- treat it as ascending (lowest relevance last)
-  local top_entry_count = 20
+  local top_entry_count = 50
   local waiting_threads = 0
   local history_data_cache = {}
 
@@ -22,7 +22,7 @@ local function create_matcher(matching_algorithm, context)
   local M = {}
 
   local native_fzy_path = matching_algorithm ~= "fzf"
-    and vim.api.nvim_get_runtime_file("deps/fzy-lua-native/lua/native.lua", false)[1]
+      and vim.api.nvim_get_runtime_file("deps/fzy-lua-native/lua/native.lua", false)[1]
 
   local options = vim.mpack.encode({
     matching_algorithm = matching_algorithm,
