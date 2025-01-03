@@ -54,6 +54,13 @@ return function(history, opts, context)
     match_runner.entries_complete()
   end)
 
+  for fullpath, v in pairs(context.open_buffers) do
+    if not is_added[fullpath] then
+      local entry_data = create_entry_data(fullpath, h, context)
+      match_runner.add_entry(entry_data)
+    end
+  end
+
   return setmetatable({
     close = function() end,
     get_status_text = function()
