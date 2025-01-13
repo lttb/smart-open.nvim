@@ -56,7 +56,7 @@ local function ripgrep_scan(basedir, ignore_patterns, on_insert, on_complete)
 
   local start_time
 
-  stop = spawn("git", { args = { 'ls-files' }, cwd = basedir }, {
+  stop = spawn("git", { args = { "ls-files", "--exclude-standard", "--others" }, cwd = basedir }, {
     stdout = function(_, chunk)
       if not start_time then
         start_time = vim.loop.uptime()
